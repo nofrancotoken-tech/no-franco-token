@@ -58,6 +58,28 @@
       text-decoration: underline;
     }
 
+    .launch-banner {
+      background-color: transparent;
+      color: #d32f2f;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      display: none;
+    }
+
+    .launch-banner.active {
+      display: block;
+    }
+
+    .launch-banner .countdown-timer {
+      font-family: 'Courier New', monospace;
+      font-size: 26px;
+      letter-spacing: 3px;
+      color: #d32f2f;
+    }
+
     .section {
       display: none;
       padding: 2rem;
@@ -222,28 +244,6 @@
       font-size: 12px;
     }
 
-    .launch-banner {
-      background-color: transparent;
-      color: #d32f2f;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      display: none;
-    }
-
-    .launch-banner.active {
-      display: block;
-    }
-
-    .launch-banner .countdown-timer {
-      font-family: 'Courier New', monospace;
-      font-size: 26px;
-      letter-spacing: 3px;
-      color: #d32f2f;
-    }
-
     footer {
       border-top: 1px solid #000;
       font-size: 10px;
@@ -296,8 +296,8 @@
     MONUMENTO A FRANCO, SANTA CRUZ DE TENERIFE | 1966-2026 | 120 TOKENS</p>
   </div>
   <nav>
-    <a href="#" onclick="showSection('home'); return false;">HOME</a>
-    <a href="#" onclick="showSection('about'); return false;">ABOUT</a>
+    <a href="#" onclick="showSection('home'); return false;">INICIO</a>
+    <a href="#" onclick="showSection('about'); return false;">EL PROYECTO</a>
     <a href="#" onclick="showSection('participar'); return false;">PARTICIPAR</a>
   </nav>
 </header>
@@ -324,27 +324,27 @@
 
   <div class="columns">
     <div class="column">
-      <h3>PARTICIPACIÓN</h3>
+      <h3>COMUNICACIÓN</h3>
       <p>TOKENS CONSERVADOS: <span id="tokensConservados">87</span></p>
       <p>TOKENS DESTRUIDOS: <span id="tokensDestruidos">33</span></p>
       <p>VOLUNTARIOS: <span id="tokensDestruidosVol">22</span> | AUTOMÁTICOS: <span id="tokensAuto">11</span></p>
-      <p>PRÓXIMA QUEMA EN: <span id="countdown">30 DÍAS</span></p>
-      <p>PRECIO ACTUAL: <span id="tokenPrice">€145.00</span></p>
+      <p>PRÓXIMA QUEMA: <span id="countdown">30 DÍAS</span></p>
     </div>
 
     <div class="column">
-      <h3>TIMELINE POLÍTICO</h3>
+      <h3>CRONOGRAMA POLÍTICO</h3>
       <p>INICIO DEL PROYECTO: 20 NOV 2025</p>
       <p>MONUMENTO EN PIE: <span id="diasMonumento">21,600</span> DÍAS</p>
       <p>ESTADO LEGAL: EN PROCESO DE BIC</p>
-      <p>AUTODESTRUCCIÓN TOTAL EN: <span id="diasRestantes">730</span> DÍAS</p>
+      <p>AUTODESTRUCCIÓN TOTAL: <span id="diasRestantes">730</span> DÍAS</p>
     </div>
 
     <div class="column">
       <h3>ACTIVIDAD EN TIEMPO REAL</h3>
       <p>ÚLTIMA COMPRA: 14/10/2025 - TOKEN #45</p>
       <p>ÚLTIMA DESTRUCCIÓN: 12/10/2025 - TOKEN #64</p>
-      <p>PRÓXIMA SUBIDA: <span id="nextIncrease">01/11/2025</span></p>
+      <p>PRECIO ACTUAL: <span id="tokenPrice">€145.00</span></p>
+      <p>PRÓXIMA SUBIDA: <span id="nextIncrease">7</span> DÍAS</p>
     </div>
   </div>
 </section>
@@ -352,32 +352,41 @@
 <section id="about" class="section">
   <strong>SOBRE EL PROYECTO</strong>
   
-  <p><strong>NO FRANCO TOKEN</strong> es un NFT performático que tokeniza el Monumento a Franco de Santa Cruz de Tenerife mediante 120 certificados digitales (uno por cada semestre desde su inauguración en 1966) programados para autodestruirse progresivamente.</p>
-
-  <p>Mientras el monumento físico se encuentra en proceso de declaración como Bien de Interés Cultural —y simultáneamente es objeto de litigio por su retirada bajo la Ley de Memoria Democrática—, su versión digital opera bajo una lógica temporal propia.</p>
+  <p><em>No Franco Token (NFT)</em> es una pieza performática en <em>blockchain</em> que "tokeniza" el <em>Monumento a Franco</em> de Santa Cruz de Tenerife mediante 120 certificados digitales, uno por cada semestre desde su inauguración en 1966. La "tokenización" consiste en fraccionar un activo físico en unidades digitales comercializables. En este caso, el objeto "tokenizado" es un monumento aún en pie, cuya retirada ha sido solicitada en orden a la Ley de Memoria Democrática, pero cuyo proceso de declaración como Bien de Interés Cultural (BIC) podría garantizar su permanencia. En el espacio digital, su gemelo no busca la preservación sino la autocrítica. El proyecto cuestiona cómo, en el sistema neoliberal, todo lo público puede privatizarse bajo la apariencia de acceso colectivo. Cada <em>token</em> fragmenta la memoria y convierte el monumento en un "mosaico especulativo", una ficción de participación democrática sostenida por el mercado. <em>No Franco Token (NFT)</em> propone una desacralización del monumento: aquello que fue concebido como eterno e inalienable se vuelve divisible, transaccionable y, finalmente, destruible. La acción se sumerge en el conflicto sobre quiénes están facultados para legitimar la memoria: ¿El Estado?, ¿los jueces?, ¿las asociaciones franquistas?, ¿las víctimas?, ¿la ciudadanía? Cada operación sobre el <em>token</em> funciona como una votación distribuida sobre la historia. En 1976, un atentado destruyó parcialmente <em>El Ángel Caído</em> de Valdepeñas, monumento del mismo escultor, Juan de Ávalos. Sus ruinas se encuentran abandonadas, convertidas en <em>contramonumento</em>. Pero, ¿puede un símbolo franquista explotar digitalmente ante la posibilidad de ser declarado Bien de Interés Cultural? Con <em>No Franco Token (NFT)</em>, su equivalente tinerfeño, el <em>Monumento a Franco</em>, también conocido popularmente como <em>El Ángel Caído</em> de Santa Cruz, está programado para autodestruirse progresivamente.</p>
 
   <strong>MECÁNICA DE LA ACCIÓN</strong>
+  
+  <p>El proyecto combina decisiones humanas y procesos automáticos programados. Cada operación, individual o sistémica, altera el estado del gemelo digital del monumento, que se va degradando en tiempo real.</p>
+
+  <p>Los NFTs del monumento pueden ser objeto de tres posibles acciones por parte del comprador:</p>
   <ul>
-    <li>Destrucción voluntaria: Cada comprador puede destruir su token como acto político</li>
-    <li>Quema automática: Cada mes, 5% de tokens restantes son quemados por la artista</li>
-    <li>Precio creciente: +10% semanal mientras el monumento físico permanezca en pie</li>
-    <li>Destrucción total condicional: Si es declarado BIC, todos los tokens se transforman en ruinas digitales</li>
+    <li>Conservación voluntaria: mantener el <em>token</em> como reliquia digital o archivo de memoria.</li>
+    <li>Destrucción voluntaria: eliminar el <em>token</em> como acto político de rechazo al símbolo que representa el monumento.</li>
+    <li>Reventa: reproducir la lógica especulativa del mercado del arte y del patrimonio.</li>
   </ul>
 
-  <p>Esta no es preservación digital. Es infraestructura de iconoclasia programada que evidencia cómo incluso lo "inalienable" puede ser fragmentado, mercantilizado y, finalmente, eliminado.</p>
+  <p>Al finalizar la acción, todos los participantes reciben un Certificado Digital de Acción, documento artístico que acredita su decisión (conservar, destruir o revender) y su participación en el debate sobre la memoria democrática.</p>
 
-  <p>En 1976, un atentado destruyó parcialmente el "Ángel Caído" de Valdepeñas, también obra de Juan de Ávalos. Sus ruinas permanecen abandonadas desde hace 49 años, convertidas en contra-monumento involuntario.</p>
+  <p>En paralelo, los <em>tokens</em> no adquiridos estarán sujetos a diferentes dinámicas:</p>
+  <ul>
+    <li>Quema automática progresiva: cada mes, la artista destruye el 5% de los <em>tokens</em> restantes.</li>
+    <li>Precio creciente: el valor de los <em>tokens</em> aumenta +10% semanal mientras el monumento físico permanezca en pie.</li>
+    <li>Destrucción total condicional: si el monumento es declarado BIC, todos los <em>tokens</em> (adquiridos o no) se transforman en ruinas digitales.</li>
+    <li>Destrucción temporal programada: pasados dos años, el gemelo digital implosiona y queda en ruinas, simbolizando el agotamiento de la espera institucional.</li>
+    <li>Archivo de la retirada: si el monumento físico es retirado, el gemelo digital se congela en su estado final, como registro visual de la lucha ciudadana.</li>
+  </ul>
 
-  <p>¿Puede un símbolo fascista explotar digitalmente antes de ser físicamente retirado?</p>
+  <p>El gemelo digital visible en la página de inicio refleja los cambios derivados de cada acción. Las operaciones de destrucción o conservación modifican su morfología digital. El modelo 3D se actualiza en función de la actividad del proyecto y su estado visual funciona como registro de la evolución del proyecto.</p>
 
   <strong>IMPORTANTE</strong>
-  <p>Esta es una pieza conceptual de Cristina Maya. Los tokens NO son inversión financiera. Están programados para autodestruirse bajo múltiples condiciones. Al participar, documenta tu posición en el debate sobre memoria histórica.</p>
+  <p>Este es un ejercicio conceptual de Cristina Maya, no una inversión financiera. Los <em>tokens</em> están programados para autodestruirse bajo múltiples condiciones. Participar en la acción implica documentar tu posición en el debate sobre memoria histórica y la resignificación del espacio público.</p>
 
   <strong>AVISO LEGAL</strong>
-  <p>Este proyecto utiliza la imagen del Monumento a Franco (Juan de Ávalos, 1966) bajo amparo de crítica artística y libertad de expresión (Art. 20 CE). Los NFTs NO representan propiedad sobre la escultura original ni sus derechos de autor.</p>
+  <p>Este proyecto utiliza la imagen del <em>Monumento a Franco</em> (Juan de Ávalos, 1966) amparado por la libertad de creación y crítica artística (Art. 20 CE). Los NFTs no representan propiedad sobre la escultura original ni sobre sus derechos de autor.</p>
 
   <strong>DESTINO DE FONDOS</strong>
-  <p>Costes técnicos del proyecto. Excedentes a asociaciones de memoria histórica.</p>
+  <p>- Costes técnicos del proyecto.<br>
+  - Excedentes se repartirán entre asociaciones de memoria histórica.</p>
 </section>
 
 <section id="participar" class="section">
@@ -396,7 +405,11 @@
     <h3>DESTRUIR TU TOKEN</h3>
     <p>Si ya posees un token y deseas destruirlo voluntariamente como acto político, completa este formulario:</p>
     
-    <form action="https://formspree.io/f/mnngrqpg" method="POST" onsubmit="showFormMessage(event)">
+    <form action="https://formsubmit.co/nofrancotoken@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Solicitud de destrucción de token">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://no-franco-token.vercel.app/?submitted=true">
+      
       <label for="wallet">DIRECCIÓN DE WALLET *</label>
       <input type="text" id="wallet" name="wallet" placeholder="0x..." required>
 
@@ -451,7 +464,7 @@
   <p>Tus datos serán conservados únicamente durante el tiempo necesario para gestionar tu solicitud y documentar la acción artística. Una vez completado el proceso, se eliminarán los datos personales innecesarios.</p>
 
   <strong>6. COMPARTIR DATOS CON TERCEROS</strong>
-  <p>Los datos del formulario son procesados a través de Formspree.io, servicio de gestión de formularios. No compartimos tus datos personales con ninguna otra entidad comercial. La información de blockchain (dirección de wallet, transacciones de tokens) es pública por naturaleza de la tecnología blockchain.</p>
+  <p>Los datos del formulario son procesados a través de Formsubmit.co, servicio de gestión de formularios. No compartimos tus datos personales con ninguna otra entidad comercial. La información de blockchain (dirección de wallet, transacciones de tokens) es pública por naturaleza de la tecnología blockchain.</p>
 
   <strong>7. TUS DERECHOS</strong>
   <p>Tienes derecho a:</p>
@@ -491,6 +504,12 @@
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     window.scrollTo(0, 0);
+  }
+
+  // Mostrar mensaje de confirmación si viene del formulario
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('submitted') === 'true') {
+    document.getElementById('formMsg').style.display = 'block';
   }
 
   // Banner de lanzamiento con cuenta atrás
@@ -592,23 +611,20 @@
   updatePrice();
   setInterval(updatePrice, 1000 * 60); // Actualizar cada minuto
 
-  // Calcular fecha de próxima subida de precio (cada lunes)
-  function getNextMonday() {
+  // Calcular días hasta próxima subida de precio (cada lunes)
+  function getDaysUntilNextMonday() {
     const today = new Date();
-    const nextMonday = new Date(today);
-    nextMonday.setDate(today.getDate() + (8 - today.getDay()) % 7);
-    return nextMonday;
+    const daysUntilMonday = (8 - today.getDay()) % 7;
+    return daysUntilMonday === 0 ? 7 : daysUntilMonday;
   }
   
-  const nextIncrease = getNextMonday();
-  const formattedDate = nextIncrease.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
-  document.getElementById('nextIncrease').textContent = formattedDate;
-
-  function showFormMessage(e) {
-    setTimeout(() => {
-      document.getElementById("formMsg").style.display = "block";
-    }, 100);
+  function updateNextIncrease() {
+    const days = getDaysUntilNextMonday();
+    document.getElementById('nextIncrease').textContent = days;
   }
+  
+  updateNextIncrease();
+  setInterval(updateNextIncrease, 1000 * 60 * 60); // Actualizar cada hora
 
   function updateMonumentModel(percentDestroyed) {
     const modelViewer = document.getElementById('monument-3d');
