@@ -15,6 +15,47 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
   
+  <style>
+    /* ============================================ */
+    /* ESTILOS PÁGINA DE CUENTA ATRÁS */
+    /* ============================================ */
+    .countdown-page {
+      display: none;
+    }
+    
+    .countdown-page.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      background-color: #fafafa;
+      padding: 10px;
+    }
+
+    .countdown-page h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: #000;
+      margin-bottom: 15%;
+      font-family: 'IBM Plex Mono', Arial, sans-serif;
+    }
+
+    .countdown-page .subtitulo {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      margin-bottom: 20px;
+      color:#000000;
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+    }
+
+    .countdown-page #contador {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      padding: 15px 30px;
+      color:#04D98B;
+      font-weight: bold;
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+    }
+
     /* ============================================ */
     /* ESTILOS PÁGINA PRINCIPAL DEL PROYECTO */
     /* ============================================ */
@@ -397,7 +438,7 @@
   </div>
 </section>
 
-  <section id="about" class="section">
+<section id="about" class="section">
   <strong>SOBRE EL PROYECTO</strong>
   
   <p><em>No Franco Token (NFT)</em> es una pieza performática en <em>blockchain</em> que "tokeniza" el <em>Monumento a Franco</em> de Santa Cruz de Tenerife mediante 120 certificados digitales, uno por cada semestre desde su inauguración en 1966. La "tokenización" consiste en fraccionar un activo físico en unidades digitales comercializables. En este caso, el objeto "tokenizado" es un monumento aún en pie, cuya retirada ha sido solicitada en orden a la Ley de Memoria Democrática, pero cuyo proceso de declaración como Bien de Interés Cultural (BIC) podría garantizar su permanencia. En el espacio digital, su gemelo no busca la preservación sino la autocrítica. El proyecto cuestiona cómo, en el sistema neoliberal, todo lo público puede privatizarse bajo la apariencia de acceso colectivo. Cada <em>token</em> fragmenta la memoria y convierte el monumento en un "mosaico especulativo", una ficción de participación democrática sostenida por el mercado. <em>No Franco Token (NFT)</em> propone una desacralización del monumento: aquello que fue concebido como eterno e inalienable se vuelve divisible, transaccionable y, finalmente, destruible. La acción se sumerge en el conflicto sobre quiénes están facultados para legitimar la memoria: ¿El Estado?, ¿los jueces?, ¿las asociaciones franquistas?, ¿las víctimas?, ¿la ciudadanía? Cada operación sobre el <em>token</em> funciona como una votación distribuida sobre la historia. En 1976, un atentado destruyó parcialmente <em>El Ángel Caído</em> de Valdepeñas, monumento del mismo escultor, Juan de Ávalos. Sus ruinas se encuentran abandonadas, convertidas en <em>contramonumento</em>. Pero, ¿puede un símbolo franquista explotar digitalmente ante la posibilidad de ser declarado Bien de Interés Cultural? Con <em>No Franco Token (NFT)</em>, su equivalente tinerfeño, el <em>Monumento a Franco</em>, también conocido popularmente como <em>El Ángel Caído</em> de Santa Cruz, está programado para autodestruirse progresivamente.</p>
@@ -545,46 +586,31 @@
 </div>
 
 <script>
-  // ============================================
-  // 🎯 PANEL DE CONTROL - SOLO CAMBIA ESTOS 3 NÚMEROS:
-  // ============================================
+  // PANEL DE CONTROL
   const TOKENS_VENDIDOS = 0;
   const TOKENS_DESTRUIDOS_VOLUNTARIOS = 0;
   const TOKENS_DESTRUIDOS_AUTOMATICOS = 0;
-  // ============================================
 
-  // ============================================
-  // FECHA DE LANZAMIENTO (hora peninsular)
-  // ============================================
-  const launchDate = new Date('2025-11-20T05:05:00Z'); // 6:05 peninsular = 5:05 UTC
-  const launchEndDate = new Date(launchDate.getTime() + 4 * 60 * 60 * 1000); // +4 horas
+  const launchDate = new Date('2025-11-20T05:05:00Z');
+  const launchEndDate = new Date(launchDate.getTime() + 4 * 60 * 60 * 1000);
 
-  // ============================================
-  // CONTROL DE VISUALIZACIÓN: CUENTA ATRÁS vs PROYECTO
-  // ============================================
   function checkAndSwitchPage() {
     const now = new Date();
     const countdownPage = document.getElementById('countdownPage');
     const mainProject = document.getElementById('mainProject');
     
     if (now < launchDate) {
-      // ANTES del lanzamiento: mostrar cuenta atrás
       countdownPage.classList.add('active');
       mainProject.classList.remove('active');
     } else {
-      // DESPUÉS del lanzamiento: mostrar proyecto completo
       countdownPage.classList.remove('active');
       mainProject.classList.add('active');
     }
   }
 
-  // Ejecutar al cargar y cada minuto
   checkAndSwitchPage();
   setInterval(checkAndSwitchPage, 60000);
 
-  // ============================================
-  // CONTADOR DE LA PÁGINA DE CUENTA ATRÁS
-  // ============================================
   const contadorElem = document.getElementById("contador");
   
   function actualizarContador() {
@@ -601,31 +627,25 @@
     const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
     
-    contadorElem.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    contadorElem.innerHTML = dias + "d " + horas + "h " + minutos + "m " + segundos + "s";
   }
   
   setInterval(actualizarContador, 1000);
   actualizarContador();
 
-  // ============================================
-  // FUNCIONES DEL PROYECTO PRINCIPAL
-  // ============================================
-  
   function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(function(s) {
+      s.classList.remove('active');
+    });
     document.getElementById(id).classList.add('active');
     window.scrollTo(0, 0);
   }
 
-  // Mostrar mensaje de confirmación si viene del formulario
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('submitted') === 'true') {
     document.getElementById('formMsg').style.display = 'block';
   }
 
-  // ============================================
-  // BANNER DE LANZAMIENTO (4 horas de oferta)
-  // ============================================
   function updateLaunchBanner() {
     const now = new Date();
     const banner = document.getElementById('launchBanner');
@@ -651,13 +671,8 @@
   updateLaunchBanner();
   setInterval(updateLaunchBanner, 1000);
 
-  // ============================================
-  // CÁLCULOS AUTOMÁTICOS
-  // ============================================
-  
   const tokensConservados = Math.max(0, TOKENS_VENDIDOS - TOKENS_DESTRUIDOS_VOLUNTARIOS);
-  const total
-  Destruidos = TOKENS_DESTRUIDOS_VOLUNTARIOS + TOKENS_DESTRUIDOS_AUTOMATICOS;
+  const totalDestruidos = TOKENS_DESTRUIDOS_VOLUNTARIOS + TOKENS_DESTRUIDOS_AUTOMATICOS;
   const tokensDisponibles = Math.max(0, 120 - TOKENS_VENDIDOS - TOKENS_DESTRUIDOS_AUTOMATICOS);
 
   document.getElementById('tokensConservados').textContent = tokensConservados;
@@ -666,9 +681,6 @@
   document.getElementById('tokensAuto').textContent = TOKENS_DESTRUIDOS_AUTOMATICOS;
   document.getElementById('available').textContent = tokensDisponibles + '/120';
 
-  // ============================================
-  // ACTUALIZAR MODELO 3D SEGÚN DESTRUCCIÓN
-  // ============================================
   function updateMonumentModel() {
     const modelViewer = document.getElementById('monument-3d');
     let phase = Math.min(Math.floor(totalDestruidos / 8.57), 13);
@@ -677,7 +689,7 @@
     if (phase === 0) {
       modelFile = "monumento_intacto.glb";
     } else {
-      modelFile = `monumento_fase_${String(phase).padStart(2, '0')}.glb`;
+      modelFile = "monumento_fase_" + String(phase).padStart(2, '0') + ".glb";
     }
     
     modelViewer.setAttribute('src', modelFile);
@@ -685,24 +697,15 @@
   
   updateMonumentModel();
 
-  // ============================================
-  // CONTADOR DE DÍAS DEL MONUMENTO
-  // ============================================
   const monumentDate = new Date('1966-05-15');
   const today = new Date();
   const diasMonumento = Math.floor((today - monumentDate) / (1000 * 60 * 60 * 24));
   document.getElementById('diasMonumento').textContent = diasMonumento.toLocaleString();
 
-  // ============================================
-  // DÍAS HASTA AUTODESTRUCCIÓN TOTAL
-  // ============================================
   const endDate = new Date('2027-11-20');
   const diasRestantes = Math.floor((endDate - today) / (1000 * 60 * 60 * 24));
   document.getElementById('diasRestantes').textContent = Math.max(0, diasRestantes);
 
-  // ============================================
-  // PRÓXIMA QUEMA AUTOMÁTICA (cada 30 días)
-  // ============================================
   let nextBurnDate = new Date(launchDate);
   nextBurnDate.setDate(nextBurnDate.getDate() + 30);
   
@@ -716,25 +719,19 @@
   updateBurnCountdown();
   setInterval(updateBurnCountdown, 1000 * 60 * 60);
 
-  // ============================================
-  // CÁLCULO DE PRECIO AUTOMÁTICO
-  // ============================================
   const basePrice = 10;
   
   function calculateCurrentPrice() {
     const now = new Date();
     
-    // Durante las primeras 4 horas: 1€
     if (now >= launchDate && now < launchEndDate) {
       return 1.00;
     }
     
-    // Antes del lanzamiento: 1€
     if (now < launchDate) {
       return 1.00;
     }
     
-    // Después: incremento del 10% cada semana
     const weeksElapsed = Math.floor((now - launchEndDate) / (1000 * 60 * 60 * 24 * 7));
     const currentPrice = basePrice * Math.pow(1.10, weeksElapsed);
     return currentPrice;
@@ -749,9 +746,6 @@
   updatePrice();
   setInterval(updatePrice, 1000 * 60);
 
-  // ============================================
-  // DÍAS HASTA PRÓXIMA SUBIDA (cada lunes)
-  // ============================================
   function getDaysUntilNextMonday() {
     const today = new Date();
     const daysUntilMonday = (8 - today.getDay()) % 7;
@@ -766,9 +760,6 @@
   updateNextIncrease();
   setInterval(updateNextIncrease, 1000 * 60 * 60);
 
-  // ============================================
-  // ÚLTIMA ACTIVIDAD (actualizar manualmente)
-  // ============================================
   const ultimaCompraTexto = "-";
   const ultimaDestruccionTexto = "-";
   
