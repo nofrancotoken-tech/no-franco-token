@@ -3,15 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NFT - NO FRANCO TOKEN - Arts, history, public space, non-profit">
+  <meta name="keywords" content="arts, history, public space, non-profit">
+  <meta name="project-type" content="artistic, non-profit">
   <title>No Franco Token</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
+    /* ============================================ */
+    /* ESTILOS PÁGINA DE CUENTA ATRÁS */
+    /* ============================================ */
+    .countdown-page {
+      display: none;
+    }
+    
+    .countdown-page.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      background-color: #fafafa;
+      padding: 10px;
+    }
+
+    .countdown-page h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: #000;
+      margin-bottom: 15%;
+      font-family: 'IBM Plex Mono', Arial, sans-serif;
+    }
+
+    .countdown-page .subtitulo {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      margin-bottom: 20px;
+      color:#000000;
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+    }
+
+    .countdown-page #contador {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      padding: 15px 30px;
+      color:#04D98B;
+      font-weight: bold;
+      font-family: 'IBM Plex Sans', Arial, sans-serif;
+    }
+
+    /* ============================================ */
+    /* ESTILOS PÁGINA PRINCIPAL DEL PROYECTO */
+    /* ============================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .main-project {
+      display: none;
+    }
+
+    .main-project.active {
+      display: block;
+    }
+
     body {
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
       background-color: #fff;
@@ -29,7 +90,7 @@
       align-items: center;
     }
 
-    .header-left h1 {
+    .header-left h2 {
       margin: 0;
       font-size: 24px;
       font-weight: bold;
@@ -87,7 +148,7 @@
       margin: 0 auto;
     }
 
-    .active {
+    .section.active {
       display: block;
     }
 
@@ -95,7 +156,7 @@
       width: 100%;
       max-width: 600px;
       height: 600px;
-      border: 1px solid #000;
+      border: none;
       background: #fafafa;
       margin: 2rem auto;
       display: block;
@@ -284,14 +345,42 @@
       .column {
         min-width: 100%;
       }
+      
+      .countdown-page h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20%;
+      }
+      
+      .countdown-page .subtitulo {
+        font-size: 1.6rem;
+      }
+      
+      .countdown-page #contador {
+        font-size: 1.6rem;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
 <body>
 
+<!-- ============================================ -->
+<!-- PÁGINA DE CUENTA ATRÁS (ANTES DEL LANZAMIENTO) -->
+<!-- ============================================ -->
+<div class="countdown-page" id="countdownPage">
+  <h1>No Franco Token</h1>
+  <div class="subtitulo">Lanzamiento</div>
+  <div id="contador">Cargando...</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PÁGINA PRINCIPAL DEL PROYECTO (DESPUÉS DEL LANZAMIENTO) -->
+<!-- ============================================ -->
+<div class="main-project" id="mainProject">
+
 <header>
   <div class="header-left">
-    <h1>NO FRANCO TOKEN</h1>
+    <h2>NO FRANCO TOKEN</h2>
     <p>NFT PERFORMÁTICO SOBRE MEMORIA HISTÓRICA<br>
     MONUMENTO A FRANCO, SANTA CRUZ DE TENERIFE | 1966-2026 | 120 TOKENS</p>
   </div>
@@ -325,9 +414,9 @@
   <div class="columns">
     <div class="column">
       <h3>COMUNICACIÓN</h3>
-      <p>TOKENS CONSERVADOS: <span id="tokensConservados">87</span></p>
-      <p>TOKENS DESTRUIDOS: <span id="tokensDestruidos">33</span></p>
-      <p>VOLUNTARIOS: <span id="tokensDestruidosVol">22</span> | AUTOMÁTICOS: <span id="tokensAuto">11</span></p>
+      <p>TOKENS CONSERVADOS: <span id="tokensConservados">0</span></p>
+      <p>TOKENS DESTRUIDOS: <span id="tokensDestruidos">0</span></p>
+      <p>VOLUNTARIOS: <span id="tokensDestruidosVol">0</span> | AUTOMÁTICOS: <span id="tokensAuto">0</span></p>
       <p>PRÓXIMA QUEMA: <span id="countdown">30 DÍAS</span></p>
     </div>
 
@@ -341,9 +430,9 @@
 
     <div class="column">
       <h3>ACTIVIDAD EN TIEMPO REAL</h3>
-      <p>ÚLTIMA COMPRA: 14/10/2025 - TOKEN #45</p>
-      <p>ÚLTIMA DESTRUCCIÓN: 12/10/2025 - TOKEN #64</p>
-      <p>PRECIO ACTUAL: <span id="tokenPrice">€145.00</span></p>
+      <p>ÚLTIMA COMPRA: <span id="ultimaCompra">-</span></p>
+      <p>ÚLTIMA DESTRUCCIÓN: <span id="ultimaDestruccion">-</span></p>
+      <p>PRECIO ACTUAL: <span id="tokenPrice">€1.00</span></p>
       <p>PRÓXIMA SUBIDA: <span id="nextIncrease">7</span> DÍAS</p>
     </div>
   </div>
@@ -361,22 +450,20 @@
   <p>Los NFTs del monumento pueden ser objeto de tres posibles acciones por parte del comprador:</p>
   <ul>
     <li>Conservación voluntaria: mantener el <em>token</em> como reliquia digital o archivo de memoria.</li>
-    <li>Destrucción voluntaria: eliminar el <em>token</em> como acto político de rechazo al símbolo que representa el monumento.</li>
+    <li>Destrucción voluntaria: cambiar el estado del <em>token</em> a destruido como acto político de rechazo al símbolo que representa el monumento.</li>
     <li>Reventa: reproducir la lógica especulativa del mercado del arte y del patrimonio.</li>
   </ul>
-
-  <p>Al finalizar la acción, todos los participantes reciben un Certificado Digital de Acción, documento artístico que acredita su decisión (conservar, destruir o revender) y su participación en el debate sobre la memoria democrática.</p>
 
   <p>En paralelo, los <em>tokens</em> no adquiridos estarán sujetos a diferentes dinámicas:</p>
   <ul>
     <li>Quema automática progresiva: cada mes, la artista destruye el 5% de los <em>tokens</em> restantes.</li>
     <li>Precio creciente: el valor de los <em>tokens</em> aumenta +10% semanal mientras el monumento físico permanezca en pie.</li>
-    <li>Destrucción total condicional: si el monumento es declarado BIC, todos los <em>tokens</em> (adquiridos o no) se transforman en ruinas digitales.</li>
-    <li>Destrucción temporal programada: pasados dos años, el gemelo digital implosiona y queda en ruinas, simbolizando el agotamiento de la espera institucional.</li>
+    <li>Destrucción total condicional: si el monumento es declarado BIC, el proyecto se cierra y todos los <em>tokens</em> (adquiridos o no) se transforman en ruinas digitales, marcados simbólicamente como destruidos.</li>
+    <li>Destrucción temporal programada: si tras dos años el monumento sigue en pie sin resolución, el gemelo digital implosiona y queda en ruinas, simbolizando el agotamiento de la espera institucional.</li>
     <li>Archivo de la retirada: si el monumento físico es retirado, el gemelo digital se congela en su estado final, como registro visual de la lucha ciudadana.</li>
   </ul>
 
-  <p>El gemelo digital visible en la página de inicio refleja los cambios derivados de cada acción. Las operaciones de destrucción o conservación modifican su morfología digital. El modelo 3D se actualiza en función de la actividad del proyecto y su estado visual funciona como registro de la evolución del proyecto.</p>
+  <p>El gemelo digital visible en la página de inicio refleja los cambios derivados de cada acción. Las operaciones de destrucción o conservación modifican su morfología digital. El modelo 3D se actualiza en función de la actividad y su estado visual funciona como registro de la evolución del proyecto.</p>
 
   <strong>IMPORTANTE</strong>
   <p>Este es un ejercicio conceptual de Cristina Maya, no una inversión financiera. Los <em>tokens</em> están programados para autodestruirse bajo múltiples condiciones. Participar en la acción implica documentar tu posición en el debate sobre memoria histórica y la resignificación del espacio público.</p>
@@ -393,8 +480,8 @@
   <div>
     <h3>COMPRAR UN TOKEN</h3>
     <p>BLOCKCHAIN: Polygon<br>
-    PRECIO ACTUAL: <span id="tokenPrice2">€145.00</span><br>
-    TOKENS DISPONIBLES: <span id="available">87/120</span></p>
+    PRECIO ACTUAL: <span id="tokenPrice2">€1.00</span><br>
+    TOKENS DISPONIBLES: <span id="available">120/120</span></p>
     <p><a href="https://opensea.io/collection/no-franco-token" target="_blank">
       <button>IR A OPENSEA</button>
     </a></p>
@@ -403,12 +490,10 @@
 
   <div>
     <h3>DESTRUIR TU TOKEN</h3>
-    <p>Si ya posees un token y deseas destruirlo voluntariamente como acto político, completa este formulario:</p>
+    <p>Si ya posees un token y deseas destruirlo, completa este formulario:</p>
     
-    <form action="https://formsubmit.co/nofrancotoken@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="Solicitud de destrucción de token">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://no-franco-token.vercel.app/?submitted=true">
+    <form action="https://getform.io/f/azygolzb" method="POST">
+      <input type="hidden" name="_gotcha" style="display:none">
       
       <label for="wallet">DIRECCIÓN DE WALLET *</label>
       <input type="text" id="wallet" name="wallet" placeholder="0x..." required>
@@ -420,14 +505,14 @@
       <input type="email" id="email" name="email" placeholder="tu@email.com">
 
       <label for="mensaje">MENSAJE OPCIONAL</label>
-      <textarea id="mensaje" name="mensaje" placeholder="¿Por qué quieres destruirlo? Puedes dejar un mensaje político..."></textarea>
+      <textarea id="mensaje" name="mensaje" placeholder="¿Por qué quieres destruirlo? Deja un mensaje..."></textarea>
 
       <button type="submit">ENVIAR SOLICITUD</button>
     </form>
 
     <p class="form-message" id="formMsg">✓ SOLICITUD RECIBIDA. TE CONTACTARÉ EN 24-48 HORAS.</p>
 
-    <p style="font-size:11px; color:#666; margin-top:1rem;">Verificaré que eres el propietario y te daré instrucciones para proceder con la destrucción. Tu acción quedará documentada eternamente en blockchain.</p>
+    <p style="font-size:11px; color:#666; margin-top:1rem;">Verificaré que eres el propietario y te daré instrucciones para proceder con la destrucción. Tu acción quedará documentada en blockchain.</p>
   </div>
 </section>
 
@@ -488,8 +573,7 @@
   <p>Nos reservamos el derecho a actualizar esta Política de Privacidad. Los cambios se publicarán en esta página con la fecha de actualización correspondiente.</p>
 
   <strong>11. CONTACTO</strong>
-  <p>Para cualquier consulta sobre esta Política de Privacidad o el tratamiento de tus datos:<br>
-  Email: nofrancotoken@gmail.com</p>
+  <p>Para cualquier consulta sobre esta Política de Privacidad o el tratamiento de tus datos, escribe a: nofrancotoken@gmail.com</p>
 </section>
 
 <footer>
@@ -499,7 +583,75 @@
   <a href="#" onclick="showSection('privacidad'); return false;">POLÍTICA DE PRIVACIDAD</a></p>
 </footer>
 
+</div>
+
 <script>
+  // ============================================
+  // 🎯 PANEL DE CONTROL - SOLO CAMBIA ESTOS 3 NÚMEROS:
+  // ============================================
+  const TOKENS_VENDIDOS = 0;
+  const TOKENS_DESTRUIDOS_VOLUNTARIOS = 0;
+  const TOKENS_DESTRUIDOS_AUTOMATICOS = 0;
+  // ============================================
+
+  // ============================================
+  // FECHA DE LANZAMIENTO (hora peninsular)
+  // ============================================
+  const launchDate = new Date('2025-11-20T05:05:00Z'); // 6:05 peninsular = 5:05 UTC
+  const launchEndDate = new Date(launchDate.getTime() + 4 * 60 * 60 * 1000); // +4 horas
+
+  // ============================================
+  // CONTROL DE VISUALIZACIÓN: CUENTA ATRÁS vs PROYECTO
+  // ============================================
+  function checkAndSwitchPage() {
+    const now = new Date();
+    const countdownPage = document.getElementById('countdownPage');
+    const mainProject = document.getElementById('mainProject');
+    
+    if (now < launchDate) {
+      // ANTES del lanzamiento: mostrar cuenta atrás
+      countdownPage.classList.add('active');
+      mainProject.classList.remove('active');
+    } else {
+      // DESPUÉS del lanzamiento: mostrar proyecto completo
+      countdownPage.classList.remove('active');
+      mainProject.classList.add('active');
+    }
+  }
+
+  // Ejecutar al cargar y cada minuto
+  checkAndSwitchPage();
+  setInterval(checkAndSwitchPage, 60000);
+
+  // ============================================
+  // CONTADOR DE LA PÁGINA DE CUENTA ATRÁS
+  // ============================================
+  const contadorElem = document.getElementById("contador");
+  
+  function actualizarContador() {
+    const ahora = new Date().getTime();
+    const diferencia = launchDate - ahora;
+    
+    if(diferencia <= 0){
+      contadorElem.innerHTML = "¡Lanzamiento!";
+      return;
+    }
+    
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+    
+    contadorElem.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+  }
+  
+  setInterval(actualizarContador, 1000);
+  actualizarContador();
+
+  // ============================================
+  // FUNCIONES DEL PROYECTO PRINCIPAL
+  // ============================================
+  
   function showSection(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
@@ -512,23 +664,15 @@
     document.getElementById('formMsg').style.display = 'block';
   }
 
-  // Banner de lanzamiento con cuenta atrás
-  const launchDate = new Date('2025-11-20T10:00:00+00:00'); // 10:00 hora Canaria (UTC+0)
-  const launchEndDate = new Date(launchDate.getTime() + 60 * 60 * 1000); // +1 hora
-  
+  // ============================================
+  // BANNER DE LANZAMIENTO (4 horas de oferta)
+  // ============================================
   function updateLaunchBanner() {
     const now = new Date();
     const banner = document.getElementById('launchBanner');
     const countdown = document.getElementById('launchCountdown');
     
-    // TEMPORAL: Mostrar siempre para vista previa
-    // Cuando esté listo para producción, descomenta el código de abajo y elimina esta línea
-    banner.classList.add('active');
-    countdown.textContent = '00 : 59 : 45'; // Ejemplo de tiempo
-    
-    /* CÓDIGO PARA PRODUCCIÓN (descomentar cuando esté listo):
     if (now >= launchDate && now < launchEndDate) {
-      // Mostrar banner durante la primera hora
       banner.classList.add('active');
       
       const timeLeft = launchEndDate - now;
@@ -541,110 +685,13 @@
         String(minutes).padStart(2, '0') + ' : ' + 
         String(seconds).padStart(2, '0');
     } else {
-      // Ocultar banner fuera del período de lanzamiento
       banner.classList.remove('active');
     }
-    */
   }
   
   updateLaunchBanner();
-  setInterval(updateLaunchBanner, 1000); // Actualizar cada segundo
+  setInterval(updateLaunchBanner, 1000);
 
-  // Contador de días que el monumento lleva en pie
-  const monumentDate = new Date('1966-05-15');
-  const today = new Date();
-  const diasMonumento = Math.floor((today - monumentDate) / (1000 * 60 * 60 * 24));
-  document.getElementById('diasMonumento').textContent = diasMonumento.toLocaleString();
-
-  // Contador de días hasta la autodestrucción total (20 Nov 2027)
-  const endDate = new Date('2027-11-20');
-  const diasRestantes = Math.floor((endDate - today) / (1000 * 60 * 60 * 24));
-  document.getElementById('diasRestantes').textContent = Math.max(0, diasRestantes);
-
-  // Actualizar tokens destruidos
-  const conservados = parseInt(document.getElementById('tokensConservados').textContent);
-  const destruidos = 120 - conservados;
-  document.getElementById('tokensDestruidos').textContent = destruidos;
-
-  // Contador para próxima quema automática (cada 30 días)
-  let nextBurnDate = new Date();
-  nextBurnDate.setDate(nextBurnDate.getDate() + 30);
-  
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = nextBurnDate - now;
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    document.getElementById("countdown").innerHTML = days + " DÍAS";
-  }
-  
-  updateCountdown();
-  setInterval(updateCountdown, 1000 * 60 * 60); // Actualizar cada hora
-
-  // Cálculo automático del precio (incremento del 10% semanal)
-  const startDate = new Date('2025-11-20T11:00:00+00:00'); // Después de la primera hora
-  const basePrice = 10; // Precio base después de la oferta de lanzamiento (€10)
-  
-  function calculateCurrentPrice() {
-    const now = new Date();
-    
-    // Durante la primera hora: 1€
-    if (now >= launchDate && now < launchEndDate) {
-      return "1.00";
-    }
-    
-    // Después de la primera hora: calcular precio según semanas
-    if (now < startDate) {
-      return basePrice.toFixed(2);
-    }
-    
-    const weeksElapsed = Math.floor((now - startDate) / (1000 * 60 * 60 * 24 * 7));
-    const currentPrice = basePrice * Math.pow(1.10, weeksElapsed);
-    return currentPrice.toFixed(2);
-  }
-  
-  function updatePrice() {
-    const price = calculateCurrentPrice();
-    document.getElementById('tokenPrice').textContent = '€' + price;
-    document.getElementById('tokenPrice2').textContent = '€' + price;
-  }
-  
-  updatePrice();
-  setInterval(updatePrice, 1000 * 60); // Actualizar cada minuto
-
-  // Calcular días hasta próxima subida de precio (cada lunes)
-  function getDaysUntilNextMonday() {
-    const today = new Date();
-    const daysUntilMonday = (8 - today.getDay()) % 7;
-    return daysUntilMonday === 0 ? 7 : daysUntilMonday;
-  }
-  
-  function updateNextIncrease() {
-    const days = getDaysUntilNextMonday();
-    document.getElementById('nextIncrease').textContent = days;
-  }
-  
-  updateNextIncrease();
-  setInterval(updateNextIncrease, 1000 * 60 * 60); // Actualizar cada hora
-
-  function updateMonumentModel(percentDestroyed) {
-    const modelViewer = document.getElementById('monument-3d');
-    let modelFile;
-    
-    if (percentDestroyed < 20) {
-      modelFile = "models/monumento_00_intacto.glb";
-    } else if (percentDestroyed < 40) {
-      modelFile = "models/monumento_01_leve.glb";
-    } else if (percentDestroyed < 60) {
-      modelFile = "models/monumento_02_medio.glb";
-    } else if (percentDestroyed < 80) {
-      modelFile = "models/monumento_03_grave.glb";
-    } else {
-      modelFile = "models/monumento_04_total.glb";
-    }
-    
-    modelViewer.setAttribute('src', modelFile);
-  }
-</script>
-
-</body>
-</html>
+  // ============================================
+  // CÁLCULOS AUTOMÁTICOS
+  // ============================================
