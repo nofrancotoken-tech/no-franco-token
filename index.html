@@ -2,27 +2,35 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="NFT - NO FRANCO TOKEN - Arts, history, public space, non-profit">
   <meta name="keywords" content="arts, history, public space, non-profit">
   <meta name="project-type" content="artistic, non-profit">
   <title>No Franco Token</title>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
+  <!-- Model Viewer -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================ */
-    /* ESTILOS PÁGINA PRINCIPAL DEL PROYECTO */
+    /* RESET */
     /* ============================================ */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
       background-color: #fff;
       color: #000;
       margin: 0;
@@ -30,6 +38,74 @@
       text-align: center;
     }
 
+    /* ============================================ */
+    /* PRE-LANZAMIENTO */
+    /* ============================================ */
+    .prelaunch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #111;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .prelaunch h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .prelaunch h2 {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: #aaa;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    .banner-oferta {
+      background: #ffcc00;
+      color: #000;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: 2px solid #000;
+      max-width: 500px;
+    }
+
+    .countdown {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+    }
+
+    .enter-btn {
+      background-color: #fff;
+      color: #000;
+      border: 2px solid #fff;
+      padding: 0.7rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .enter-btn:hover {
+      background-color: #000;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* ============================================ */
+    /* HEADER */
+    /* ============================================ */
     header {
       border-bottom: 1px solid #000;
       padding: 1.5rem 2rem;
@@ -38,14 +114,48 @@
       align-items: center;
     }
 
-    .header-left h2 { margin: 0; font-size: 24px; font-weight: bold; letter-spacing: 2px; text-align: left; }
-    .header-left p { margin: 0.5rem 0 0 0; font-size: 11px; color: #666; text-align: left; line-height: 1.4; }
+    .header-left h2 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-align: left;
+    }
 
-    nav a { margin-left: 1.5rem; text-decoration: none; color: #000; font-weight: bold; letter-spacing: 1px; font-size: 12px; }
-    nav a:hover { text-decoration: underline; }
+    .header-left p {
+      margin: 0.5rem 0 0 0;
+      font-size: 11px;
+      color: #666;
+      text-align: left;
+      line-height: 1.4;
+    }
 
-    .section { display: none; padding: 2rem; max-width: 1200px; margin: 0 auto; }
-    .section.active { display: block; }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-size: 12px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ============================================ */
+    /* SECCIÓN GENERAL */
+    /* ============================================ */
+    .section {
+      display: none;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section.active {
+      display: block;
+    }
 
     model-viewer {
       width: 100%;
@@ -57,6 +167,9 @@
       display: block;
     }
 
+    /* ============================================ */
+    /* COLUMNAS */
+    /* ============================================ */
     .columns {
       display: flex;
       justify-content: space-around;
@@ -74,18 +187,67 @@
       padding-top: 1rem;
     }
 
-    .column h3 { font-size: 14px; margin-bottom: 1rem; font-weight: bold; }
-    .column p { font-size: 12px; line-height: 1.6; margin: 0.5rem 0; }
+    .column h3 {
+      font-size: 14px;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
 
-    #about p, #about ul { text-align: left; font-size: 12px; line-height: 1.8; margin-bottom: 1rem; max-width: 900px; margin-left: auto; margin-right: auto; }
-    #about ul { list-style-position: inside; padding-left: 1rem; }
+    .column p {
+      font-size: 12px;
+      line-height: 1.6;
+      margin: 0.5rem 0;
+    }
 
-    #participar > div { text-align: left; max-width: 700px; margin: 0 auto 2rem; }
-    #participar h3 { font-size: 14px; margin-bottom: 1rem; border-bottom: 1px solid #000; padding-bottom: 0.5rem; font-weight: bold; }
+    /* ============================================ */
+    /* ABOUT */
+    /* ============================================ */
+    #about p,
+    #about ul {
+      text-align: left;
+      font-size: 12px;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-    form { text-align: left; }
-    form label { display: block; font-size: 12px; margin-top: 1rem; margin-bottom: 0.3rem; }
-    input, textarea {
+    #about ul {
+      list-style-position: inside;
+      padding-left: 1rem;
+    }
+
+    /* ============================================ */
+    /* FORM */
+    /* ============================================ */
+    #participar > div {
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    #participar h3 {
+      font-size: 14px;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #000;
+      padding-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    form {
+      text-align: left;
+    }
+
+    form label {
+      display: block;
+      font-size: 12px;
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    input,
+    textarea {
       width: 100%;
       border: 1px solid #000;
       padding: 0.5rem;
@@ -93,7 +255,11 @@
       font-size: 12px;
       margin-bottom: 1rem;
     }
-    textarea { min-height: 80px; resize: vertical; }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
 
     button {
       background: #000;
@@ -105,37 +271,101 @@
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
       text-transform: uppercase;
     }
-    button:hover { background: #fff; color: #000; }
 
-    .form-message { color: green; display: none; margin-top: 1rem; font-size: 12px; }
+    button:hover {
+      background: #fff;
+      color: #000;
+    }
 
-    footer { border-top: 1px solid #000; font-size: 10px; color: #444; margin-top: 3rem; padding: 1rem; line-height: 1.6; }
-    footer a { color: #444; text-decoration: underline; }
-    footer a:hover { color: #000; }
+    .form-message {
+      color: green;
+      display: none;
+      margin-top: 1rem;
+      font-size: 12px;
+    }
 
+    footer {
+      border-top: 1px solid #000;
+      font-size: 10px;
+      color: #444;
+      margin-top: 3rem;
+      padding: 1rem;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: #444;
+      text-decoration: underline;
+    }
+
+    footer a:hover {
+      color: #000;
+    }
+
+    /* ============================================ */
+    /* RESPONSIVE */
+    /* ============================================ */
     @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; }
-      nav { margin-top: 1rem; }
-      nav a { margin-left: 0; margin-right: 1rem; }
-      .columns { flex-direction: column; }
-      .column { min-width: 100%; }
-      model-viewer { height: 420px; }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 1rem;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+
+      .columns {
+        flex-direction: column;
+      }
+
+      .column {
+        min-width: 100%;
+      }
+
+      model-viewer {
+        height: 420px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <!-- ============================================ -->
-<!-- PÁGINA PRINCIPAL DEL PROYECTO (ACTIVA POR DEFECTO) -->
+<!-- PÁGINA DE PRE-LANZAMIENTO -->
 <!-- ============================================ -->
-<div class="main-project active" id="mainProject">
+<div class="prelaunch" id="prelaunch">
+  <h1>NO FRANCO TOKEN</h1>
+  <h2>NFT PERFORMÁTICO SOBRE MEMORIA HISTÓRICA</h2>
 
+  <div class="banner-oferta">
+    OFERTA DE LANZAMIENTO: 1€ POR TOKEN · SOLO DURANTE LAS PRÓXIMAS 48 HORAS
+  </div>
+
+  <div class="countdown" id="launchCountdown">00:00:00</div>
+
+  <button class="enter-btn" onclick="enterSite()">ENTRAR</button>
+</div>
+
+<!-- ============================================ -->
+<!-- PÁGINA PRINCIPAL DEL PROYECTO -->
+<!-- ============================================ -->
+<div class="main-project" id="mainProject" style="display:none;">
 <header>
   <div class="header-left">
     <h2>NO FRANCO TOKEN</h2>
-    <p>NFT PERFORMÁTICO SOBRE MEMORIA HISTÓRICA<br>
-    MONUMENTO A FRANCO, SANTA CRUZ DE TENERIFE | 1966-2026 | 120 TOKENS</p>
+    <p>
+      NFT PERFORMÁTICO SOBRE MEMORIA HISTÓRICA<br>
+      MONUMENTO A FRANCO, SANTA CRUZ DE TENERIFE | 1966-2026 | 120 TOKENS
+    </p>
   </div>
+
   <nav>
     <a href="#" onclick="showSection('home'); return false;">INICIO</a>
     <a href="#" onclick="showSection('about'); return false;">EL PROYECTO</a>
@@ -143,15 +373,21 @@
   </nav>
 </header>
 
+<!-- ============================================ -->
+<!-- HOME -->
+<!-- ============================================ -->
 <section id="home" class="section active">
-  <model-viewer 
+
+  <model-viewer
     id="monument-3d"
-    src="monumento_intacto.glb" 
+    src="monumento_intacto.glb"
     alt="Gemelo digital del monumento"
-    auto-rotate 
+    auto-rotate
     camera-controls
     shadow-intensity="1">
-    <div slot="poster" style="width:100%; height:600px; background:#f5f5f5; display:flex; align-items:center; justify-content:center; border:1px solid #000;">
+    <div
+      slot="poster"
+      style="width:100%; height:600px; background:#f5f5f5; display:flex; align-items:center; justify-content:center; border:1px solid #000;">
       <div style="text-align:center; color:#999; font-size:14px;">
         GEMELO DIGITAL<br>PRÓXIMAMENTE
       </div>
@@ -159,6 +395,8 @@
   </model-viewer>
 
   <div class="columns">
+
+    <!-- PANEL 1 -->
     <div class="column">
       <h3>COMUNICACIÓN</h3>
       <p>TOKENS CONSERVADOS: <span id="tokensConservados">0</span></p>
@@ -167,6 +405,7 @@
       <p>PRÓXIMA QUEMA: <span id="countdown">30 DÍAS</span></p>
     </div>
 
+    <!-- PANEL 2 -->
     <div class="column">
       <h3>CRONOGRAMA POLÍTICO</h3>
       <p>INICIO DEL PROYECTO: 20 NOV 2025</p>
@@ -175,33 +414,90 @@
       <p>AUTODESTRUCCIÓN TOTAL: <span id="diasRestantes">730</span> DÍAS</p>
     </div>
 
+    <!-- PANEL 3 -->
     <div class="column">
       <h3>ACTIVIDAD EN TIEMPO REAL</h3>
       <p>ÚLTIMA COMPRA: <span id="ultimaCompra">-</span></p>
       <p>ÚLTIMA DESTRUCCIÓN: <span id="ultimaDestruccion">-</span></p>
       <p>PRECIO ACTUAL: <span id="tokenPrice">€1.00</span></p>
-      <p>PRÓXIMA SUBIDA: <span id="nextIncrease">7</span> DÍAS</p>
+      <p>PRÓXIMA SUBIDA: <span id="nextIncrease">7</span> DÍAS</span></p>
     </div>
   </div>
+
 </section>
 
+<!-- ============================================ -->
+<!-- ABOUT -->
+<!-- ============================================ -->
 <section id="about" class="section">
   <strong>SOBRE EL PROYECTO</strong>
-  <!-- (Contenido del about mantenido igual que en tu original) -->
-  <p><em>No Franco Token (NFT)</em> es una pieza performática en <em>blockchain</em> ...</p>
-  <!-- Resumido en este ejemplo para brevedad; pega el texto completo si lo deseas -->
+
+  <p><em>No Franco Token (NFT)</em> es una obra performática basada en blockchain que investiga la memoria histórica, el espacio público y el papel de la ciudadanía en la relectura del pasado autoritario. El proyecto propone la fragmentación simbólica del Monumento a Franco de Santa Cruz de Tenerife —una de las últimas grandes esculturas franquistas aún en pie en España— mediante una colección limitada de 120 tokens digitales.</p>
+
+  <p>Cada token representa un fragmento virtual del monumento. Los propietarios pueden conservarlo o destruirlo. La destrucción no es metafórica: cada vez que un token se quema, se elimina del contrato y desaparece para siempre. Este acto individual influye directamente en la representación 3D del monumento, que se va erosionando en tiempo real.</p>
+
+  <p>La obra propone una pregunta abierta:</p>
+  <p><strong>¿Quién debe decidir el futuro de los símbolos autoritarios en democracia: el Estado, la ley, o la ciudadanía?</strong></p>
+
+  <p>En lugar de ofrecer una respuesta, el proyecto crea un escenario donde decisiones individuales tienen impacto colectivo, visible, irreversible y documentado en la cadena de bloques.</p>
+
+  <br>
+
+  <strong>¿POR QUÉ 120 TOKENS?</strong>
+  <p>El Monumento a Franco está compuesto por aproximadamente 120 m² de superficie escultórica si se toma como referencia la geometría externa principal. La colección no replica literalmente esa división, pero toma ese número como una unidad simbólica de fragmentación.</p>
+
+  <br>
+
+  <strong>¿CÓMO SE EROSIONA EL MONUMENTO?</strong>
+  <p>El gemelo digital del monumento está dividido en tres estados:</p>
+
+  <ul>
+    <li><strong>Estado 0 – Intacto:</strong> Ningún token quemado.</li>
+    <li><strong>Estado 1 – Erosión parcial:</strong> A partir de X destrucciones.</li>
+    <li><strong>Estado 2 – Erosión avanzada:</strong> A partir de X destrucciones adicionales.</li>
+  </ul>
+
+  <p>Estos cambios no son simulados: el archivo 3D mostrado en la web cambia en función de la destrucción real de tokens.</p>
+
+  <br>
+
+  <strong>ENFOQUE ARTÍSTICO</strong>
+
+  <p>El proyecto combina:</p>
+
+  <ul>
+    <li>Artes digitales</li>
+    <li>Memoria democrática</li>
+    <li>Blockchain como archivo irreversible</li>
+    <li>Participación ciudadana</li>
+    <li>Reflexión crítica sobre el patrimonio</li>
+  </ul>
+
+  <p>No se posiciona a favor ni en contra del derribo del monumento, sino que construye un espacio de participación simbólica donde ese debate se vuelve visible y activo.</p>
+
 </section>
 
+<!-- ============================================ -->
+<!-- PARTICIPAR -->
+<!-- ============================================ -->
 <section id="participar" class="section">
+
   <div>
     <h3>COMPRAR UN TOKEN</h3>
+
     <p>BLOCKCHAIN: Polygon<br>
     PRECIO ACTUAL: <span id="tokenPrice2">€1.00</span><br>
     TOKENS DISPONIBLES: <span id="available">120/120</span></p>
-    <p><a href="https://opensea.io/collection/no-franco-token" target="_blank">
-      <button>IR A OPENSEA</button>
-    </a></p>
-    <p style="font-size:11px; color:#666;">Los tokens se venden en OpenSea. Se puede pagar con tarjeta de crédito o con criptomoneda.</p>
+
+    <p>
+      <a href="https://opensea.io/collection/no-franco-token" target="_blank">
+        <button>IR A OPENSEA</button>
+      </a>
+    </p>
+
+    <p style="font-size:11px; color:#666;">
+      Los tokens se venden en OpenSea. Se puede pagar con tarjeta de crédito o criptomoneda.
+    </p>
   </div>
 
   <div>
@@ -210,114 +506,188 @@
 
     <form action="https://getform.io/f/azygolzb" method="POST">
       <input type="hidden" name="_gotcha" style="display:none">
+
       <label for="wallet">DIRECCIÓN DE WALLET *</label>
       <input type="text" id="wallet" name="wallet" placeholder="0x..." required>
+
       <label for="tokenId">NÚMERO DE TOKEN *</label>
       <input type="text" id="tokenId" name="tokenId" placeholder="#064" required>
+
       <label for="email">TU EMAIL</label>
-      <input type="email" id="email" name="email" placeholder="tu@email.com">
+      <input type="email" id="email" name="email" placeholder="email@example.com">
+
       <label for="mensaje">MENSAJE OPCIONAL</label>
       <textarea id="mensaje" name="mensaje" placeholder="¿Por qué quieres destruirlo? Deja un mensaje..."></textarea>
+
       <button type="submit">ENVIAR SOLICITUD</button>
     </form>
 
-    <p class="form-message" id="formMsg">✓ SOLICITUD RECIBIDA. TE CONTACTARÉ EN 24-48 HORAS.</p>
+    <p class="form-message" id="formMsg">
+      ✓ SOLICITUD RECIBIDA. TE CONTACTARÉ EN 24-48 HORAS.
+    </p>
 
-    <p style="font-size:11px; color:#666; margin-top:1rem;">Verificaré que eres el propietario y te daré instrucciones para proceder con la destrucción. Tu acción quedará documentada en blockchain.</p>
+    <p style="font-size:11px; color:#666; margin-top:1rem;">
+      Verificaré que eres el propietario y te daré instrucciones para proceder con la destrucción.
+      Tu acción quedará documentada en blockchain.
+    </p>
   </div>
+
 </section>
 
+<!-- ============================================ -->
+<!-- PRIVACIDAD -->
+<!-- ============================================ -->
 <section id="privacidad" class="section">
   <strong>POLÍTICA DE PRIVACIDAD</strong>
-  <!-- (Contenido mantenido igual que en tu original) -->
+
   <p>Última actualización: Noviembre 2025</p>
+
+  <p>Este proyecto no almacena datos personales más allá de la información enviada voluntariamente por los usuarios a través del formulario. Los datos enviados se utilizan exclusivamente para verificar la propiedad del token y gestionar la solicitud de destrucción.</p>
+
+  <p>No se realizan cesiones de datos a terceros ni se utilizan con fines comerciales.</p>
+
+  <p>El proyecto utiliza servicios externos (Getform, OpenSea), los cuales tienen sus propias políticas de privacidad.</p>
+
+  <p>Para solicitar la eliminación de tus datos, escribe a: <strong>nofrancotoken@gmail.com</strong></p>
+
 </section>
 
 <footer>
-  <p>NO FRANCO TOKEN (NFT) | Performance Blockchain sobre Memoria Democrática<br>
-  Cristina Maya | 2025<br>
-  CONTACTO: nofrancotoken@gmail.com<br>
-  <a href="#" onclick="showSection('privacidad'); return false;">POLÍTICA DE PRIVACIDAD</a></p>
+  <p>
+    NO FRANCO TOKEN (NFT) | Performance Blockchain sobre Memoria Democrática<br>
+    Cristina Maya | 2025<br>
+    CONTACTO: nofrancotoken@gmail.com<br>
+    <a href="#" onclick="showSection('privacidad'); return false;">POLÍTICA DE PRIVACIDAD</a>
+  </p>
 </footer>
+</div> <!-- cierre de mainProject -->
 
-</div>
-
+<!-- ============================================ -->
+<!-- SCRIPTS -->
+<!-- ============================================ -->
 <script>
-  // ============================================
-  // 🎯 PANEL DE CONTROL - SOLO CAMBIA ESTOS 3 NÚMEROS:
-  // ============================================
-  const TOKENS_VENDIDOS = 0;
-  const TOKENS_DESTRUIDOS_VOLUNTARIOS = 0;
-  const TOKENS_DESTRUIDOS_AUTOMATICOS = 0;
-  // ============================================
 
-  // ============================================
-  // FUNCIONES BÁSICAS DE NAVEGACIÓN
-  // ============================================
+  /* ============================================
+     NAVEGACIÓN ENTRE SECCIONES
+  ============================================ */
   function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     window.scrollTo(0, 0);
   }
 
-  // Mostrar mensaje de confirmación si viene del formulario
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('submitted') === 'true') {
-    const fm = document.getElementById('formMsg');
-    if (fm) fm.style.display = 'block';
+  /* ============================================
+     ENTRAR A LA WEB DESDE EL PRE-LANZAMIENTO
+  ============================================ */
+  function enterSite() {
+    document.getElementById('prelaunch').style.display = 'none';
+    document.getElementById('mainProject').style.display = 'block';
   }
 
-  // ============================================
-  // CÁLCULOS DE TOKENS
-  // ============================================
-  const tokensConservados = Math.max(0, TOKENS_VENDIDOS - TOKENS_DESTRUIDOS_VOLUNTARIOS);
-  const totalDestruidos = TOKENS_DESTRUIDOS_VOLUNTARIOS + TOKENS_DESTRUIDOS_AUTOMATICOS;
-  const tokensDisponibles = Math.max(0, 120 - TOKENS_VENDIDOS - TOKENS_DESTRUIDOS_AUTOMATICOS);
+  /* ============================================
+     CUENTA ATRÁS DEL LANZAMIENTO
+  ============================================ */
+  const launchTarget = new Date().getTime() + (48 * 60 * 60 * 1000);  // 48 horas
+
+  function updateLaunchCountdown() {
+    const now = new Date().getTime();
+    const distance = launchTarget - now;
+
+    if (distance <= 0) {
+      document.getElementById('launchCountdown').innerHTML = "00:00:00";
+      return;
+    }
+
+    const hours = Math.floor(distance / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("launchCountdown").innerHTML =
+      (hours < 10 ? "0" + hours : hours) + ":" +
+      (minutes < 10 ? "0" + minutes : minutes) + ":" +
+      (seconds < 10 ? "0" + seconds : seconds);
+  }
+
+  setInterval(updateLaunchCountdown, 1000);
+  updateLaunchCountdown();
+
+
+  /* ============================================
+     PANEL DE CONTROL (NÚMEROS MANUALES)
+  ============================================ */
+  const TOKENS_VENDIDOS = 0;
+  const TOKENS_DESTRUIDOS_VOLUNTARIOS = 0;
+  const TOKENS_DESTRUIDOS_AUTOMATICOS = 0;
+
+  const tokensConservados =
+    Math.max(0, TOKENS_VENDIDOS - TOKENS_DESTRUIDOS_VOLUNTARIOS);
+
+  const totalDestruidos =
+    TOKENS_DESTRUIDOS_VOLUNTARIOS + TOKENS_DESTRUIDOS_AUTOMATICOS;
+
+  const tokensDisponibles =
+    Math.max(0, 120 - TOKENS_VENDIDOS - TOKENS_DESTRUIDOS_AUTOMATICOS);
 
   document.getElementById('tokensConservados').textContent = tokensConservados;
   document.getElementById('tokensDestruidos').textContent = totalDestruidos;
-  document.getElementById('tokensDestruidosVol').textContent = TOKENS_DESTRUIDOS_VOLUNTARIOS;
-  document.getElementById('tokensAuto').textContent = TOKENS_DESTRUIDOS_AUTOMATICOS;
-  document.getElementById('available').textContent = tokensDisponibles + '/120';
+  document.getElementById('tokensDestruidosVol').textContent =
+    TOKENS_DESTRUIDOS_VOLUNTARIOS;
+  document.getElementById('tokensAuto').textContent =
+    TOKENS_DESTRUIDOS_AUTOMATICOS;
+  document.getElementById('available').textContent =
+    tokensDisponibles + "/120";
 
-  // ============================================
-  // ACTUALIZAR MODELO 3D SEGÚN DESTRUCCIÓN
-  // Usamos solo tus tres archivos .glb
-  // ============================================
+
+  /* ============================================
+     ACTUALIZACIÓN DEL MODELO 3D SEGÚN DESTRUCCIONES
+     (adaptado a tus 3 archivos .glb)
+  ============================================ */
   function updateMonumentModel() {
     const modelViewer = document.getElementById('monument-3d');
-    let modelFile;
+    let file;
 
-    // Regla simple (ajusta umbrales si quieres):
-    // 0 destruidos -> intacto
-    // 1-5 destruidos -> fase 01
-    // >=6 -> fase 02
     if (totalDestruidos === 0) {
-      modelFile = "monumento_intacto.glb";
+      file = "monumento_intacto.glb";
     } else if (totalDestruidos <= 5) {
-      modelFile = "monumento_fase_01.glb";
+      file = "monumento_fase_01.glb";
     } else {
-      modelFile = "monumento_fase_02.glb";
+      file = "monumento_fase_02.glb";
     }
 
-    modelViewer.setAttribute('src', modelFile);
+    modelViewer.setAttribute("src", file);
   }
 
   updateMonumentModel();
 
-  // ============================================
-  // CONTADORES DE TIEMPO (no hay "pre-lanzamiento")
-  // ============================================
-  const monumentDate = new Date('1966-05-15');
+
+  /* ============================================
+     DÍAS EN PIE DEL MONUMENTO
+  ============================================ */
+  const monumentDate = new Date("1966-05-15");
   const today = new Date();
-  const diasMonumento = Math.floor((today - monumentDate) / (1000 * 60 * 60 * 24));
-  document.getElementById('diasMonumento').textContent = diasMonumento.toLocaleString();
+  const diasMonumento = Math.floor(
+    (today - monumentDate) / (1000 * 60 * 60 * 24)
+  );
 
-  const endDate = new Date('2027-11-20');
-  const diasRestantes = Math.floor((endDate - today) / (1000 * 60 * 60 * 24));
-  document.getElementById('diasRestantes').textContent = Math.max(0, diasRestantes);
+  document.getElementById("diasMonumento").textContent =
+    diasMonumento.toLocaleString();
 
-  // Próxima quema en 30 días desde hoy (simple)
+
+  /* ============================================
+     DÍAS HASTA DESTRUCCIÓN TOTAL PROGRAMADA
+  ============================================ */
+  const endDate = new Date("2027-11-20");
+  const diasRestantes = Math.floor(
+    (endDate - today) / (1000 * 60 * 60 * 24)
+  );
+
+  document.getElementById("diasRestantes").textContent =
+    Math.max(0, diasRestantes);
+
+
+  /* ============================================
+     CUENTA ATRÁS A LA PRÓXIMA QUEMA (30 días)
+  ============================================ */
   let nextBurnDate = new Date();
   nextBurnDate.setDate(nextBurnDate.getDate() + 30);
 
@@ -325,56 +695,65 @@
     const now = new Date();
     const distance = nextBurnDate - now;
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    document.getElementById("countdown").innerHTML = Math.max(0, days) + " DÍAS";
+
+    document.getElementById("countdown").innerHTML =
+      Math.max(0, days) + " DÍAS";
   }
+
   updateBurnCountdown();
   setInterval(updateBurnCountdown, 1000 * 60 * 60);
 
-  // ============================================
-  // CÁLCULO DE PRECIO (incremento semanal del 10%)
-  // ============================================
-  const basePrice = 1.00; // precio inicial por token
-  const priceStartDate = new Date('2025-11-20'); // fecha de referencia para incrementos semanales
+
+  /* ============================================
+     PRECIO DEL TOKEN (subida del 10% semanal)
+  ============================================ */
+  const basePrice = 1.0;
+  const priceStartDate = new Date("2025-11-20");
 
   function calculateCurrentPrice() {
     const now = new Date();
-    const weeksElapsed = Math.floor((now - priceStartDate) / (1000 * 60 * 60 * 24 * 7));
-    const currentPrice = basePrice * Math.pow(1.10, Math.max(0, weeksElapsed));
-    return currentPrice;
+    const weeksElapsed = Math.floor(
+      (now - priceStartDate) / (1000 * 60 * 60 * 24 * 7)
+    );
+    return basePrice * Math.pow(1.1, Math.max(0, weeksElapsed));
   }
 
   function updatePrice() {
     const price = calculateCurrentPrice();
-    document.getElementById('tokenPrice').textContent = '€' + price.toFixed(2);
-    document.getElementById('tokenPrice2').textContent = '€' + price.toFixed(2);
+    document.getElementById("tokenPrice").textContent =
+      "€" + price.toFixed(2);
+    document.getElementById("tokenPrice2").textContent =
+      "€" + price.toFixed(2);
   }
+
   updatePrice();
   setInterval(updatePrice, 1000 * 60);
 
-  // ============================================
-  // DÍAS HASTA PRÓXIMA SUBIDA (cada lunes)
-  // ============================================
+
+  /* ============================================
+     SIGUIENTE SUBIDA (lunes)
+  ============================================ */
   function getDaysUntilNextMonday() {
     const t = new Date();
-    const daysUntilMonday = (8 - t.getDay()) % 7;
-    return daysUntilMonday === 0 ? 7 : daysUntilMonday;
+    const d = (8 - t.getDay()) % 7;
+    return d === 0 ? 7 : d;
   }
 
   function updateNextIncrease() {
-    const days = getDaysUntilNextMonday();
-    document.getElementById('nextIncrease').textContent = days;
+    document.getElementById("nextIncrease").textContent =
+      getDaysUntilNextMonday();
   }
+
   updateNextIncrease();
   setInterval(updateNextIncrease, 1000 * 60 * 60);
 
-  // ============================================
-  // ÚLTIMA ACTIVIDAD (valores estáticos, actualizar manualmente)
-  // ============================================
-  const ultimaCompraTexto = "-";
-  const ultimaDestruccionTexto = "-";
 
-  document.getElementById('ultimaCompra').textContent = ultimaCompraTexto;
-  document.getElementById('ultimaDestruccion').textContent = ultimaDestruccionTexto;
+  /* ============================================
+     ÚLTIMAS ACCIONES (estáticas)
+  ============================================ */
+  document.getElementById("ultimaCompra").textContent = "-";
+  document.getElementById("ultimaDestruccion").textContent = "-";
+
 </script>
 
 </body>
